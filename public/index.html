@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yjs Live JSON</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "yjs": "https://esm.sh/yjs@13.6.10",
+                "y-websocket": "https://esm.sh/y-websocket@2.0.4"
+            }
+        }
+    </script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f0f0f0; }
+        .container { background: white; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; }
+        pre { background: #222; color: #0f0; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        input { padding: 8px; width: 100px; }
+        button { padding: 8px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Room: <span id="room-id">...</span></h2>
+        <input type="text" id="key" placeholder="Key">
+        <input type="text" id="val" placeholder="Value">
+        <button id="btn">Update</button>
+        <h3>Document:</h3>
+        <pre id="out">{}</pre>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
