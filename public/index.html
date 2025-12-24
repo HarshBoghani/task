@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Yjs Live JSON</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yjs Multi-Type JSON</title>
     <script type="importmap">
         {
             "imports": {
@@ -12,20 +13,39 @@
         }
     </script>
     <style>
-        body { font-family: sans-serif; padding: 20px; background: #f0f0f0; }
-        .container { background: white; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; }
-        pre { background: #222; color: #0f0; padding: 15px; border-radius: 5px; overflow-x: auto; }
-        input { padding: 8px; width: 100px; }
-        button { padding: 8px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; }
+        body { font-family: sans-serif; padding: 20px; background: #f4f7f6; color: #333; }
+        .container { background: white; padding: 25px; border-radius: 12px; max-width: 600px; margin: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { margin-top: 0; color: #007bff; }
+        .input-group { display: flex; gap: 10px; margin-top: 15px; }
+        input { padding: 10px; border: 1px solid #ddd; border-radius: 6px; flex: 1; font-size: 14px; }
+        button { padding: 10px 20px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 6px; font-weight: bold; }
+        button:hover { background: #0056b3; }
+        .hint { font-size: 0.8em; color: #888; margin-top: 8px; }
+        pre { background: #1e1e1e; color: #a9dc76; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+        .delete-section { margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; }
+        .btn-danger { background: #dc3545; }
+        .btn-danger:hover { background: #a71d2a; }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Room: <span id="room-id">...</span></h2>
-        <input type="text" id="key" placeholder="Key">
-        <input type="text" id="val" placeholder="Value">
-        <button id="btn">Update</button>
-        <h3>Document:</h3>
+        
+        <div class="input-group">
+            <input type="text" id="key" placeholder="Key (e.g., tags)">
+            <input type="text" id="val" placeholder="Value (e.g., ['js', 'api'])">
+            <button id="btn">Set / Update</button>
+        </div>
+        <div class="hint">
+            <strong>Pro Tip:</strong> Use <code>true</code> for booleans, <code>[ ]</code> for arrays, or <code>{ }</code> for objects.
+        </div>
+
+        <div class="delete-section">
+            <input type="text" id="delete-key" placeholder="Key to delete">
+            <button id="del-btn" class="btn-danger">Delete Key</button>
+        </div>
+
+        <h3>Live JSON Document:</h3>
         <pre id="out">{}</pre>
     </div>
     <script type="module" src="main.js"></script>
